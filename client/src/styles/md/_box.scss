@@ -1,0 +1,60 @@
+.box {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+    border-radius: $border-radius-base;
+    color: $mdb-card-body-text;
+    background: $mdb-card-body-background;
+
+    .box-header{
+        @include shadow-big();
+        border-radius: $border-radius-base;
+        padding: $padding-base;
+        background-color: $gray-color;
+        
+        .title{
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+    }
+
+    .box-content{
+        padding: 15px 20px;
+    }
+
+    [data-background-color="purple"]{
+        background: linear-gradient(60deg, $purple-400, $purple-600);
+        @include shadow-big-color($brand-primary);
+    }
+
+    [data-background-color="blue"]{
+        background: linear-gradient(60deg, $cyan-400, $cyan-600);
+        @include shadow-big-color($brand-info);
+    }
+
+    [data-background-color="green"]{
+        background: linear-gradient(60deg, $green-400, $green-600);
+        @include shadow-big-color($brand-success);
+    }
+
+    [data-background-color="orange"]{
+        background: linear-gradient(60deg, $orange-400, $orange-600);
+        @include shadow-big-color($brand-warning);
+    }
+
+    [data-background-color="red"]{
+        background: linear-gradient(60deg, $red-400, $red-600);
+        @include shadow-big-color($brand-danger);
+    }
+
+    [data-background-color]{
+        color: $white-color;
+
+        a{
+            color: $white-color;
+        }
+    }
+}
