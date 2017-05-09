@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import common from './common';
+import home from './home';
 
 const rootReducer = combineReducers({
-    common
+    common,
+    home
 });
 
 export default rootReducer;

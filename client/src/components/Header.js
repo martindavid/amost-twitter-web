@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class Header extends Component {
 
@@ -14,6 +15,22 @@ class Header extends Component {
                             <span className="icon-bar"></span>
                         </button>
                         <a className="navbar-brand" href="#">Twitter Analytics</a>
+                    </div>
+                    <div className="collapse navbar-collapse">
+                        <ul className="nav navbar-nav navbar-right">
+                            <li>
+                                <Link to="/" className="dropdown-toggle">
+                                    <i className="fa fa-home"></i> Fast food to Death
+                                </Link>
+                            </li>
+                        </ul>
+                        <ul className="nav navbar-nav navbar-right">
+                            <li>
+                                <Link to="/" className="dropdown-toggle">
+                                    <i className="fa fa-home"></i> General Analysis
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>

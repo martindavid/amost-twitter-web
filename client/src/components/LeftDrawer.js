@@ -7,7 +7,7 @@ class LeftDrawer extends Component {
             <div className="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
                 <div className="logo">
                     <a href="http://www.creative-tim.com" className="simple-text">
-                        Dashboard Starter
+                        Twitter Analytics
 				</a>
                 </div>
                 <div className="sidebar-wrapper">
@@ -15,13 +15,13 @@ class LeftDrawer extends Component {
                         <li className="active">
                             <a href="dashboard.html">
                                 <i className="fa fa-home"></i>
-                                <p>Home</p>
+                                <p>Death by fast food</p>
                             </a>
                         </li>
                         <li>
                             <a href="dashboard.html">
                                 <i className="fa fa-dashboard"></i>
-                                <p>Component</p>
+                                <p>Victorian Tweets</p>
                             </a>
                         </li>
                     </ul>

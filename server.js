@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const debug = require('debug');
 
-const entries = require('./api/entries');
+const tweets = require('./api/tweets');
 
 const app = express();
 
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-app.use('/api/entries', entries);
+app.use('/api/tweets', tweets);
 
 app.post('/*', (req, res) => {
   res.redirect('/');

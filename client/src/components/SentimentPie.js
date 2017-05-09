@@ -44,14 +44,11 @@ const chartConfig = {
         }]
 };
 
-const SentimentAnalysis = props => {
+const SentimentPie = props => {
     return (
-        <CardContainer backgroundColor="red"
-            title="Sentiment Analysis"
-            description="Sentiment analysis result">
-            <ReactHighcharts config={chartConfig} />
-        </CardContainer>
+        
+        <ReactHighcharts config={chartConfig} />
     );
 }
 
-export default SentimentAnalysis;
+export default SentimentPie;
