@@ -3,19 +3,17 @@ import ReactHighcharts from 'react-highcharts';
 import Highcharts from 'highcharts';
 
 const SentimentByDate = props => {
-    const { data } = props;
+    const { data, pieData } = props;
     if (data) {
         // Sort data
-        data.sort(function(a, b){
+        data.sort(function (a, b) {
             var keyA = new Date(a.key),
                 keyB = new Date(b.key);
             // Compare the 2 dates
-            if(keyA < keyB) return -1;
-            if(keyA > keyB) return 1;
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
             return 0;
         });
-
-        console.log(data);
 
         // Construct the data
         const categories = data.map((val, i) => {
@@ -55,7 +53,7 @@ const SentimentByDate = props => {
             },
             { // Secondary yAxis
                 title: {
-                    text: 'Sentiment',
+                    text: 'Sentiment (Tweet Count)',
                     style: {
                         color: Highcharts.getOptions().colors[0]
                     }
@@ -106,8 +104,7 @@ const SentimentByDate = props => {
                 tooltip: {
                     valueSuffix: ' tweet'
                 }
-            }
-                , {
+            }, {
                 name: 'Neutral',
                 type: 'spline',
                 yAxis: 1,

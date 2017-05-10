@@ -19,7 +19,7 @@ class Header extends Component {
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <Link to="/" className="dropdown-toggle">
+                                <Link to="/extra" className="dropdown-toggle">
                                     <i className="fa fa-home"></i> Fast food to Death
                                 </Link>
                             </li>

@@ -5,6 +5,7 @@ import MainStat from '../components/MainStat';
 import SentimentAnalysis from './SentimentAnalysis';
 import WordCloudRenderer from '../components/WordCloudRenderer';
 import TermsCount from '../components/TermsCount';
+import SentimentMap from './SentimentMap';
 import agent from '../agent';
 
 const mapStateToProps = state => ({
@@ -24,14 +25,15 @@ class Home extends Component {
             agent.Tweet.getDateBreakdown(),
             agent.Tweet.getTopHashtag(),
             agent.Tweet.getTopWord(),
-            agent.Tweet.getWordList()
+            agent.Tweet.getWordList(),
+            agent.Info.get()
         ]));
     }
 
     render() {
         return (
             <div className="container-fluid">
-                <MainStat />
+                <MainStat data={this.props.dataInfo} />
                 <div className="row">
                     <div className="col-sm-12">
                         <SentimentAnalysis />
@@ -47,6 +49,12 @@ class Home extends Component {
                         <WordCloudRenderer data={this.props.wordList} />
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-sm-12">
+                        <SentimentMap />
+                    </div>
+                </div>
+                
             </div>
         );
     }

@@ -40,7 +40,19 @@ const TweetSentiment = {
         requests.get('api/sentiment/time')
 }
 
+const TweetMap = {
+    get: () =>
+        requests.get('api/map')
+}
+
+const Info = {
+    get: () =>
+        requests.get('api/info')
+}
+
 export default {
     Tweet,
-    TweetSentiment
+    TweetSentiment,
+    TweetMap,
+    Info
 }

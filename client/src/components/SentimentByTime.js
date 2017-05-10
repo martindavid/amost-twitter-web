@@ -43,7 +43,7 @@ const SentimentByDate = props => {
             },
             { // Secondary yAxis
                 title: {
-                    text: 'Sentiment',
+                    text: 'Sentiment (Tweet Count)',
                     style: {
                         color: Highcharts.getOptions().colors[0]
                     }

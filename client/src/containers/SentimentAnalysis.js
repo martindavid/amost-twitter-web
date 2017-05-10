@@ -34,7 +34,7 @@ class SentimentAnalysis extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         <SentimentPie data={this.props.sentiment} />
-                        <SentimentByDate data={this.props.sentimentByDate} />
+                        <SentimentByDate data={this.props.sentimentByDate} pieData={this.props.sentiment} />
                     </div>
                     <div className="col-sm-12">
                         <SentimentByTime data={this.props.sentimentByTime} />
