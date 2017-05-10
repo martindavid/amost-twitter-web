@@ -10,3 +10,24 @@
 @keyframes blinker {
   50% { opacity: 0.0; }
 }
+
+.active-menu {
+  background-color: #9c27b0;
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+  color: #FFFFFF;
+  margin: 0px 15px;
+  border-radius: 3px;
+}
+
+.circle-legend {
+  border-radius: 50%;
+  width: 50%;
+  height: auto;
+  padding-top: 50%;
+  background: #ef8913;
+}
+
+.stat-text {
+  text-align: left;
+  margin: 0px !important;
+}
