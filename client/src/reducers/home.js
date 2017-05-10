@@ -7,7 +7,8 @@ export default (state={}, action) => {
                 groupingDateData: action.payload[1],
                 topHashtag: action.payload[2],
                 topKeyword: action.payload[3],
-                wordList: action.payload[4]
+                wordList: action.payload[4],
+                dataInfo: action.payload[5]
             }
         default:
             return state;

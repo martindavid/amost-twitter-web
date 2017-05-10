@@ -5,6 +5,9 @@ const logger = require('morgan');
 const debug = require('debug');
 
 const tweets = require('./api/tweets');
+const tweetSentiment = require('./api/tweetSentiment');
+const tweetSentimentMap = require('./api/tweetSentimentMap');
+const info = require('./api/info');
 
 const app = express();
 
@@ -20,6 +23,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use('/api/tweets', tweets);
+app.use('/api/sentiment', tweetSentiment);
+app.use('/api/map', tweetSentimentMap);
+app.use('/api/info', info);
 
 app.post('/*', (req, res) => {
   res.redirect('/');
