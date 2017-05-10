@@ -19,6 +19,8 @@ const requests = {
 };
 
 const Tweet = {
+    get: id => 
+        requests.get(`api/tweets?id=${id}`),
     getDateBreakdown: () =>
         requests.get('api/tweets/date'),
     getTimeBreakdown: () =>

@@ -3,7 +3,7 @@ import ReactHighcharts from 'react-highcharts';
 import Highcharts from 'highcharts';
 
 const SentimentByDate = props => {
-    const { data, pieData } = props;
+    const { data } = props;
     if (data) {
         // Sort data
         data.sort(function (a, b) {

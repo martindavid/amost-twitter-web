@@ -13,12 +13,25 @@ const wordCountViewUrl = word_db + "_design/analytics/_view/word_count?limit=10&
 const hashtagsCountViewUrl = hashtag_db + "_design/analytics/_view/sum_hashtags?limit=10&descending=true&group=true";
 const wordListViewUrl = word_db + "_design/analytics/_view/word_count?limit=200&descending=true&group=true";
 
+router.get('/', (req, res) => {
+    request(root_url + req.query.id, (error, response, body) => {
+        if (error) {
+            res.status(response.statusCode).send(error);
+        } else {
+            const data = JSON.parse(body);
+            res.status(200).send({
+                text: data.text
+            });
+        }
+    });
+});
+
 router.get('/time', (req, res) => {
     request(conversationTimeViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
         } else {
-            data = JSON.parse(body);
+            const data = JSON.parse(body);
             res.status(200).send(data);
         }
     });
@@ -53,6 +66,7 @@ router.get('/top-word', (req, res) => {
 });
 
 router.get('/word', (req, res) => {
+    console.log(wordListViewUrl);
     request(wordListViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);

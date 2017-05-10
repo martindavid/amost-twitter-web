@@ -5,6 +5,11 @@ export default (state={}, action) => {
                 ...state,
                 mapData: action.payload[0]
             }
+        case 'SENTIMENT_ON_TWEET_LOAD':
+            return {
+                ...state,
+                tweetText: action.payload
+            }
         default:
             return state;
     }

@@ -13,10 +13,10 @@ class ExtraTopic extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-sm-6">
-                        <NegativeSentiment />
+                        <PositiveSentiment />
                     </div>
                     <div className="col-sm-6">
-                        <PositiveSentiment />
+                        <NegativeSentiment />
                     </div>
                 </div>
                 <div className="row">

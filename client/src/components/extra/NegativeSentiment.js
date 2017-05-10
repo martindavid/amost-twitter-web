@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts';
-import Highcharts from 'highcharts';
 import CardContainer from '../card/CardContainer';
 import { constructChartConfig } from './ChartConfig';
 

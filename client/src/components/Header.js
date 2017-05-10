@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import Menu from './Menu';
 
 class Header extends Component {
 
@@ -18,18 +18,12 @@ class Header extends Component {
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav navbar-right">
-                            <li>
-                                <Link to="/extra" className="dropdown-toggle">
-                                    <i className="fa fa-home"></i> Fast food to Death
-                                </Link>
-                            </li>
-                        </ul>
-                        <ul className="nav navbar-nav navbar-right">
-                            <li>
-                                <Link to="/" className="dropdown-toggle">
-                                    <i className="fa fa-home"></i> General Analysis
-                                </Link>
-                            </li>
+                            <Menu to="/" className="dropdown-toggle">
+                                <i className="fa fa-pie-chart"></i> General Analysis
+                            </Menu>
+                            <Menu to="/extra" className="dropdown-toggle">
+                                <i className="fa fa-area-chart"></i> Fast food to Death
+                            </Menu>
                         </ul>
                     </div>
                 </div>

@@ -94,7 +94,7 @@ class PositiveSentiment extends Component {
         const chartConfig = constructChartConfig(tooltipText, xAxisTitle, yAxisTitle, chartData);
 
         return (
-            <CardContainer backgroundColor="red"
+            <CardContainer backgroundColor="green"
                 title="Sentiment Analysis"
                 description="Annual Avg Premature Death (per 100,000) and Positive Tweets">
                 <ReactHighcharts config={chartConfig} />

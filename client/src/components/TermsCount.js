@@ -70,28 +70,6 @@ const TermsCount = props => {
         const wordConfig = constructChartConfig(keywordList, keywordCount);
         const hashtagConfig = constructChartConfig(hashtagList, hashtagCount)
 
-
-        {/*<div className="box">
-                <div className="box-header" data-background-color="green">
-                    <h4 className="title">Word and Hashtag (Top 10)</h4>
-                </div>
-                <div className="box-content">
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <div className="text-center">
-                                <h3>Keyword</h3>
-                            </div>
-                            <ReactHighcharts config={wordConfig} />
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="text-center">
-                                <h3>Hashtag</h3>
-                            </div>
-                            <ReactHighcharts config={hashtagConfig} />
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
         return (
 
             <CardContainer backgroundColor="red"
