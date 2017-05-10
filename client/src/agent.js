@@ -31,6 +31,16 @@ const Tweet = {
         requests.get('api/tweets/word')
 }
 
+const TweetSentiment = {
+    get: () =>
+        requests.get('api/sentiment'),
+    getDateBreakDown: () =>
+        requests.get('api/sentiment/date'),
+    getTimeBreakDown: () =>
+        requests.get('api/sentiment/time')
+}
+
 export default {
-    Tweet
+    Tweet,
+    TweetSentiment
 }

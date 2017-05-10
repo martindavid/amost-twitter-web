@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../components/Header';
-import LeftDrawer from '../components/LeftDrawer';
 
 const mapStateToProps = state => ({
   

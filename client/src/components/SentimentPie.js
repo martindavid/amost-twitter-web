@@ -1,16 +1,11 @@
 import React from 'react';
-import CardContainer from '../components/card/CardContainer';
 import ReactHighcharts from 'react-highcharts';
 import Highcharts from 'highcharts';
 
-const pieData = [
-    { name: 'Positive', y: 100 },
-    { name: 'Negative', y: 56 },
-    { name: 'Neutral', y: 30 }
-];
-
-const chartConfig = {
-    chart: {
+const SentimentPie = props => {
+    const { data } = props;
+    const chartConfig = {
+        chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false,
@@ -40,13 +35,11 @@ const chartConfig = {
         series: [{
             name: 'Sentiment',
             colorByPoint: true,
-            data: pieData
+            data: data
         }]
-};
+    };
 
-const SentimentPie = props => {
     return (
-        
         <ReactHighcharts config={chartConfig} />
     );
 }

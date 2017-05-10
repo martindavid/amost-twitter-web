@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import CardStats from '../components/card/CardStats';
-
 import MainStat from '../components/MainStat';
 import SentimentAnalysis from './SentimentAnalysis';
 import WordCloudRenderer from '../components/WordCloudRenderer';
@@ -47,11 +45,6 @@ class Home extends Component {
                     </div>
                     <div className="col-sm-6">
                         <WordCloudRenderer data={this.props.wordList} />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        
                     </div>
                 </div>
             </div>

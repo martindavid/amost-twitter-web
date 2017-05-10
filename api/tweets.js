@@ -11,10 +11,10 @@ const conversationTimeViewUrl = root_url + "_design/analytics/_view/conversation
 const conversationDateViewUrl = root_url + "_design/analytics/_view/conversation-date-breakdown?reduce=true&group=true";
 const wordCountViewUrl = word_db + "_design/analytics/_view/word_count?limit=10&descending=true&group=true";
 const hashtagsCountViewUrl = hashtag_db + "_design/analytics/_view/sum_hashtags?limit=10&descending=true&group=true";
-const wordListViewUrl = word_db + "_design/analytics/_view/word_list";
+const wordListViewUrl = word_db + "_design/analytics/_view/word_count?limit=200&descending=true&group=true";
 
-router.get('/time', function(req, res) {
-    request(conversationTimeViewUrl, function(error, response, body) {
+router.get('/time', (req, res) => {
+    request(conversationTimeViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
         } else {
@@ -24,8 +24,8 @@ router.get('/time', function(req, res) {
     });
 });
 
-router.get('/date', function(req, res) {
-    request(conversationDateViewUrl, function(error, response, body) {
+router.get('/date', (req, res) => {
+    request(conversationDateViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
         } else {
@@ -35,8 +35,8 @@ router.get('/date', function(req, res) {
     });
 });
 
-router.get('/top-word', function(req, res) {
-    request(wordCountViewUrl, function(error, response, body) {
+router.get('/top-word', (req, res) => {
+    request(wordCountViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
         } else {
@@ -52,17 +52,16 @@ router.get('/top-word', function(req, res) {
     });
 });
 
-router.get('/word', function(req, res) {
-    request(wordListViewUrl, function(error, response, body) {
+router.get('/word', (req, res) => {
+    request(wordListViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
         } else {
             const data = JSON.parse(body);
-            console.log(data);
             const parsedResult = data.rows.map((val, i) => {
                 return {
-                    text: val.key,
-                    value: val.value
+                    text: val.key[1],
+                    value: val.key[0]
                 }
             });
             res.status(200).send(parsedResult);
@@ -70,8 +69,8 @@ router.get('/word', function(req, res) {
     });
 });
 
-router.get('/top-hashtag', function(req, res) {
-    request(hashtagsCountViewUrl, function(error, response, body) {
+router.get('/top-hashtag', (req, res) => {
+    request(hashtagsCountViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
         } else {
