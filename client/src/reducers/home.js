@@ -14,7 +14,6 @@ export default (state={}, action) => {
                 victoriaTweet: tweetInfo.tweet_size
             }
         case 'HOME_ON_TWEET_UPDATE':
-            console.log(action.payload);
             return {
                 ...state,
                 allTweetCount: action.payload.data_size,

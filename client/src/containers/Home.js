@@ -43,7 +43,7 @@ class Home extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <ReactInterval timeout={5000} enabled={true}
+                <ReactInterval timeout={10000} enabled={true}
                     callback={this.updateTweetInfo} />
                 <MainStat
                     data={this.props.dataInfo}

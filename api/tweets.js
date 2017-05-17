@@ -66,7 +66,6 @@ router.get('/top-word', (req, res) => {
 });
 
 router.get('/word', (req, res) => {
-    console.log(wordListViewUrl);
     request(wordListViewUrl, (error, response, body) => {
         if (error) {
             res.status(response.statusCode).send(error);
