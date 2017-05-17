@@ -11,7 +11,7 @@ const conversationTimeViewUrl = root_url + "_design/analytics/_view/conversation
 const conversationDateViewUrl = root_url + "_design/analytics/_view/conversation-date-breakdown?reduce=true&group=true";
 const wordCountViewUrl = word_db + "_design/analytics/_view/word_count?limit=10&descending=true&group=true";
 const hashtagsCountViewUrl = hashtag_db + "_design/analytics/_view/sum_hashtags?limit=10&descending=true&group=true";
-const wordListViewUrl = word_db + "_design/analytics/_view/word_count?limit=200&descending=true&group=true";
+const wordListViewUrl = word_db + "_design/analytics/_view/word_count?limit=300&descending=true&group=true";
 
 router.get('/', (req, res) => {
     request(root_url + req.query.id, (error, response, body) => {

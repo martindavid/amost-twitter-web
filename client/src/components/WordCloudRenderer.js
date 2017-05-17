@@ -3,8 +3,8 @@ import WordCloud from 'react-d3-cloud';
 
 import CardContainer from '../components/card/CardContainer';
 
-const fontSizeMapper = word => Math.log2(word.value) * 3;
-const rotate = word => word.value % 45;
+const fontSizeMapper = word => Math.log2(word.value) * 2;
+const rotate = word => word.value % 360;
 
 const WordCloudRenderer = props => {
     if (props.data) {
@@ -16,8 +16,9 @@ const WordCloudRenderer = props => {
                     data={props.data}
                     fontSizeMapper={fontSizeMapper}
                     rotate={rotate}
-                    width={400}
+                    width={500}
                     height={400}
+                    padding={2}
                 />
             </CardContainer>
         );

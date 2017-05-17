@@ -1,4 +1,8 @@
-export default (state={}, action) => {
+const defaultState = {
+    isLoading: true
+}
+
+export default (state=defaultState, action) => {
     switch(action.type) {
         case 'HOME_ON_LOAD':
             const tweetInfo = action.payload[5];
@@ -11,7 +15,8 @@ export default (state={}, action) => {
                 wordList: action.payload[4],
                 dataInfo: tweetInfo,
                 allTweetCount: tweetInfo.data_size,
-                victoriaTweet: tweetInfo.tweet_size
+                victoriaTweet: tweetInfo.tweet_size,
+                isLoading: false
             }
         case 'HOME_ON_TWEET_UPDATE':
             return {

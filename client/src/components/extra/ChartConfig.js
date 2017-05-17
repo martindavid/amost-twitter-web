@@ -1,9 +1,13 @@
-export const constructChartConfig = (tooltipText ,xAxisTitle, yAxisTitle, data) => {
+import { sortArray } from '../utils';
+
+export const constructChartConfig = (tooltipText, xAxisTitle, yAxisTitle, data) => {
+    data.sort(sortArray);
+    console.log(data);
     return {
-        chart: {
-            type: 'scatter',
-            zoomType: 'xy'
-        },
+        // chart: {
+        //     type: 'scatter',
+        //     zoomType: 'xy'
+        // },
         title: {
             text: ''
         },
@@ -54,7 +58,22 @@ export const constructChartConfig = (tooltipText ,xAxisTitle, yAxisTitle, data) 
             }
         },
         series: [{
+            type: 'line',
+            name: 'Regression Line',
+            data: [data[0], data[data.length - 1]],
+            marker: {
+                enabled: false
+            },
+            states: {
+                hover: {
+                    lineWidth: 0
+                }
+            },
+            enableMouseTracking: false
+        }, {
             regression: true,
+            type: 'scatter',
+            zoomType: 'xy',
             name: "Local Government Area (2011)",
             color: 'rgba(223, 83, 83, .5)',
             data: data

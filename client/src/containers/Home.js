@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactInterval from 'react-interval';
+import PaceProgress from '../components/Pace';
 
 import MainStat from '../components/MainStat';
 import SentimentAnalysis from './SentimentAnalysis';
@@ -41,37 +42,42 @@ class Home extends Component {
     }
 
     render() {
-        return (
-            <div className="container-fluid">
-                <ReactInterval timeout={10000} enabled={true}
-                    callback={this.updateTweetInfo} />
-                <MainStat
-                    data={this.props.dataInfo}
-                    allTweetSize={this.props.allTweetCount}
-                    victoriaTweetSize={this.props.victoriaTweet} />
-                <div className="row">
-                    <div className="col-sm-12">
-                        <SentimentAnalysis />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <TermsCount
-                            hashtag={this.props.topHashtag}
-                            keyword={this.props.topKeyword} />
-                    </div>
-                    <div className="col-sm-6">
-                        <WordCloudRenderer data={this.props.wordList} />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <SentimentMap />
-                    </div>
-                </div>
+        if (this.props.isLoading) {
+            return (<PaceProgress color="#27ae60" />)
+        } else {
+            return (
+                <div className="container-fluid">
+                    <ReactInterval timeout={20000} enabled={true}
+                        callback={this.updateTweetInfo} />
 
-            </div>
-        );
+                    <MainStat
+                        data={this.props.dataInfo}
+                        allTweetSize={this.props.allTweetCount}
+                        victoriaTweetSize={this.props.victoriaTweet} />
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <SentimentAnalysis />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <TermsCount
+                                hashtag={this.props.topHashtag}
+                                keyword={this.props.topKeyword} />
+                        </div>
+                        <div className="col-sm-6">
+                            <WordCloudRenderer data={this.props.wordList} />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <SentimentMap />
+                        </div>
+                    </div>
+
+                </div>
+            );
+        }
     }
 }
 
