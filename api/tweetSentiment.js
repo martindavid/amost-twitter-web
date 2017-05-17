@@ -44,12 +44,12 @@ router.get('/time', (req, res) => {
                     net: 0
                 };
             });
-            
+
             // Fetch sentiment data group by time
             rp(sentimentByTimeViewUrl).then((sentimentByTime) => {
                 const sentimentData = JSON.parse(sentimentByTime).rows;
                 // filter sentimentByTime data and map it with aggregateResult
-                const finalData = aggregateResult.map((val,i) => {
+                const finalData = aggregateResult.map((val, i) => {
                     var search = sentimentData.filter(x => x.key[1] === val.key);
                     if (search && search.length > 0) {
                         search.forEach((elem) => {
@@ -59,6 +59,19 @@ router.get('/time', (req, res) => {
                         });
                     }
                     return val;
+                });
+                finalData.sort((a, b) => {
+                    const valA = a.time;
+                    const valB = b.time;
+                    if (valA < valB) {
+                        return -1;
+                    }
+                    if (valA > valB) {
+                        return 1;
+                    }
+
+                    // names must be equal
+                    return 0;
                 });
                 res.status(200).send(finalData);
             });
@@ -96,22 +109,71 @@ router.get('/date', (req, res) => {
                 }
                 return val;
             });
-            res.status(200).send(finalData);
+            
+            finalData.sort((a, b) => {
+                return new Date(a.key) - new Date(b.key);
+            });
+
+            res.status(200).send(finalData.slice(Math.max(finalData.length - 30, 1)));
         }).catch((err) => {
             res.status(500).send(err);
         })
-    }).catch((err) =>{
+    }).catch((err) => {
         res.status(500).send(err);
     })
 })
 
 // Pretty shit way to convert int (hours) to formatted time
 const formatTime = (hours) => {
-    if (hours > 9) {
-        return hours + ":00";
-    }
-    else {
-        return "0" + hours + ":00";
+    switch (hours) {
+        case 0:
+            return "10:00";
+        case 1:
+            return "11:00";
+        case 2:
+            return "12:00";
+        case 3:
+            return "13:00";
+        case 4:
+            return "14:00";
+        case 5:
+            return "15:00";
+        case 6:
+            return "16:00";
+        case 7:
+            return "17:00";
+        case 8:
+            return "18:00";
+        case 9:
+            return "19:00";
+        case 10:
+            return "20:00";
+        case 11:
+            return "21:00";
+        case 12:
+            return "22:00";
+        case 13:
+            return "23:00";
+        case 14:
+            return "00:00";
+        case 15:
+            return "01:00";
+        case 16:
+            return "02:00";
+        case 17:
+            return "03:00";
+        case 18:
+            return "04:00";
+        case 19:
+            return "05:00";
+        case 20:
+            return "06:00";
+        case 21:
+            return "07:00";
+        case 22:
+            return "08:00";
+        case 23:
+            return "09:00";
     }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactInterval from 'react-interval';
 
 import MainStat from '../components/MainStat';
 import SentimentAnalysis from './SentimentAnalysis';
@@ -14,10 +15,19 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onLoad: payload =>
-        dispatch({ type: 'HOME_ON_LOAD', payload })
+        dispatch({ type: 'HOME_ON_LOAD', payload }),
+    onTweetInfoUpdate: payload =>
+        dispatch({ type: 'HOME_ON_TWEET_UPDATE', payload })
 });
 
 class Home extends Component {
+
+    constructor() {
+        super();
+        this.updateTweetInfo = () => {
+            this.props.onTweetInfoUpdate(agent.Info.get());
+        }
+    }
 
     componentWillMount() {
         this.props.onLoad(Promise.all([
@@ -33,7 +43,12 @@ class Home extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <MainStat data={this.props.dataInfo} />
+                <ReactInterval timeout={10000} enabled={true}
+                    callback={this.updateTweetInfo} />
+                <MainStat
+                    data={this.props.dataInfo}
+                    allTweetSize={this.props.allTweetCount}
+                    victoriaTweetSize={this.props.victoriaTweet} />
                 <div className="row">
                     <div className="col-sm-12">
                         <SentimentAnalysis />
@@ -41,9 +56,9 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     <div className="col-sm-6">
-                        <TermsCount 
-                          hashtag={this.props.topHashtag}
-                          keyword={this.props.topKeyword} />
+                        <TermsCount
+                            hashtag={this.props.topHashtag}
+                            keyword={this.props.topKeyword} />
                     </div>
                     <div className="col-sm-6">
                         <WordCloudRenderer data={this.props.wordList} />
@@ -54,7 +69,7 @@ class Home extends Component {
                         <SentimentMap />
                     </div>
                 </div>
-                
+
             </div>
         );
     }

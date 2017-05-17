@@ -5,8 +5,8 @@ import CardStatsLong from './card/CardStatsLong';
 class MainStat extends Component {
 
     render() {
-        const { data } = this.props;
-        if (data) {
+        const { data, allTweetSize, victoriaTweetSize } = this.props;
+        if (allTweetSize && victoriaTweetSize) {
             return (
                 <div className="row">
                     <div className="col-md-3">
@@ -14,14 +14,14 @@ class MainStat extends Component {
                             backgroundColor="blue"
                             iconClass="fa-twitter"
                             category="Total Harvested Tweets"
-                            title={data.data_size.toLocaleString()} />
+                            title={allTweetSize.toLocaleString()} />
                     </div>
                     <div className="col-md-3">
                         <CardStats
                             backgroundColor="blue"
                             iconClass="fa-twitter"
                             category="Total Tweets For Victoria Region"
-                            title={data.tweet_size.toLocaleString()} />
+                            title={victoriaTweetSize.toLocaleString()} />
                     </div>
                     <div className="col-sm-6">
                         <CardStatsLong
